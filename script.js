@@ -1,13 +1,16 @@
+const searchDiv = document.createElement('div');
+document.body.appendChild(searchDiv);
+
 const pokemonName = document.createElement('input');
 pokemonName.type = 'text';
 pokemonName.className = 'pokemon-input'
 pokemonName.placeholder = 'Enter pokemon name';
-document.body.appendChild(pokemonName);
+searchDiv.appendChild(pokemonName);
 
 const button = document.createElement('button');
 button.textContent = 'Search';
 button.className = 'search-btn'
-document.body.appendChild(button);
+searchDiv.appendChild(button);
 
 const resultDiv = document.createElement('div');
 resultDiv.className = 'result-container'
@@ -15,6 +18,9 @@ document.body.appendChild(resultDiv);
 
 button.addEventListener('click', function searchPokemon(){
     let userInput = pokemonName.value.toLowerCase().trim();  
+
+    resultDiv.classList.add('show');
+    
     if (userInput === ''){
         resultDiv.textContent = 'Please enter a pokemon name!';
         return;
